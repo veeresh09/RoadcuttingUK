@@ -1,0 +1,31 @@
+{
+  "name": "ichi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@material-ui/core": "^4.9.5",
+    "bootstrap": "^4.4.1",
+    "compass-mixins": "^0.12.10",
+    "config": "^3.2.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "mongoose": "^5.8.11",
+    "react-responsive-sidebar": "^0.1.16",
+    "react-sidebar": "^3.0.2",
+    "react-sidemenu": "^1.1.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.2"
+  }
+}
