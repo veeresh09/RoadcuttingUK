@@ -75,29 +75,41 @@ class Payment extends Component {
                 <Container>
 
                     <h2 className="text-center mt-2">{data.PP.PP[this.props.lang]}</h2>
+                    <br></br>
                     <h4>{data.PP.PCD[this.props.lang]}</h4>
                     <Form>
-                        <Form.Group as={Row}>
-                            <Form.Label column sm='2'>{data.PP.UI[this.props.lang]}</Form.Label>
-                            <Col sm="6">
-                                <Form.Control plaintext readOnly defaultValue={this.state.payId} />
-                            </Col>
-                        </Form.Group>
+                        <Row className="mb-4">
+                            <Col><Row><Col sm={4} className=" d-flex justify-content-end align-items-center ">
+                                <Form.Label className="mb-0">{data.PP.UI[this.props.lang]}</Form.Label></Col>
+                                <Col sm={8}>
+                                    <Form.Control plaintext readOnly defaultValue={this.state.payId} />
+                                </Col></Row></Col>
 
-                        <Form.Group as={Row}>
-                            <Form.Label column sm='2'>{data.PP.FD[this.props.lang]}</Form.Label>
-                            <Col sm="6">
-                                <Form.Control plaintext readOnly defaultValue="Road Cutting Charges" />
-                            </Col>
-                        </Form.Group>
-                        <Form.Group as={Row}>
-                            <Form.Label column sm='2'>{data.PP.TA[this.props.lang]}</Form.Label>
-                            <Col sm="6">
-                                <Form.Control plaintext readOnly defaultValue={this.state.amount} />
-                            </Col>
-                        </Form.Group>
 
+                            <Col><Row><Col sm={4} className=" d-flex justify-content-end align-items-center ">
+                                <Form.Label className="mb-0">{data.PP.FD[this.props.lang]}</Form.Label></Col>
+                                <Col sm={8}>
+                                    <Form.Control plaintext readOnly defaultValue="Road Cutting Charges" />
+                                </Col></Row></Col>
+                        </Row>
+                        <Row className="mb-4">
+                            <Col><Row><Col sm={4} className=" d-flex justify-content-end align-items-center " >
+                                <Form.Label className="mb-0">{data.PP.TA[this.props.lang]}</Form.Label></Col>
+                                <Col sm={8}>
+                                    <Form.Control plaintext readOnly defaultValue={this.state.amount} />
+                                </Col></Row></Col>
+                            <Col>
+                                <Row>
+                                    <Col
+                                        sm={4}
+                                        className=" d-flex justify-content-end align-items-center "
+                                    ></Col>
+                                    <Col sm={8}></Col>
+                                </Row>
+                            </Col>
+                        </Row>
                     </Form>
+                    <br></br>
                     <h4>{data.PP.CP[this.props.lang]}</h4>
                     <Form>
 
@@ -136,6 +148,7 @@ class Payment extends Component {
                                 </Row>
                             </Col>
                         </Row>
+                        <br></br>
                         <h4>{data.PP.MSCRD[this.props.lang]}</h4>
 
                         <Row className="mb-4">
