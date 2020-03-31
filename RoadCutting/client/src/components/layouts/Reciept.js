@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, Form, Col, Row, Container } from 'react-bootstrap'
+import { Button, Form, Col, Row, Container, Card } from 'react-bootstrap'
 import Menu from './Menu';
 import data from '../../reducers/data';
 import axios from 'axios';
@@ -44,30 +44,64 @@ class Reciept extends Component {
             <div className="pay">
                 <Menu />
                 <Container>
+
                     <h2 className="large text-primary">{data.R.R[this.props.lang]}</h2>
-                    <Form>
-                        <br></br><br></br>
-                        <p>{data.R.PI[this.props.lang]}</p>
-                        <Form.Group as={Row}>
-                            <Form.Label column sm='2'>{data.R.PID[this.props.lang]}</Form.Label>
-                            <Col sm="6">
-                                <Form.Control plaintext readOnly defaultValue={xx.data ? xx.data.Payments[0].id : 'Random'} />
-                            </Col>
-                        </Form.Group>
-                        <Form.Group as={Row} colum sm='2'>
-                            <Form.Label>{data.R.TN[this.props.lang]}</Form.Label>
-                            <Col sm="6">
-                                <Form.Control plaintext readOnly defaultValue={xx.data ? xx.data.Payments[0].transactionNumber : 'Random'} />
-                            </Col>
-                        </Form.Group>
-                        <Form.Group as={Row} column sm='2'>
-                            <Form.Label>{data.R.PA[this.props.lang]}</Form.Label>
-                            <Col sm="6">
-                                <Form.Control plaintext readOnly defaultValue={xx.data ? xx.data.Payments[0].totalAmountPaid : 'NULL'} />
-                            </Col>
-                        </Form.Group>
-                        <Button variant="primary" type="submit" onClick={e => this.handleSubmit(e)}>{data.R.PR[this.props.lang]}</Button>
-                    </Form></Container>
+                    <Card className="text-center">
+                        <Card.Header>{data.R.PI[this.props.lang]}</Card.Header>
+                        <Form>
+                            <Row className="mb-4">
+                                <Col><Row><Col sm={4} className=" d-flex justify-content-end align-items-center ">
+                                    <Form.Label className="mb-0">{data.R.PID[this.props.lang]}</Form.Label></Col>
+                                    <Col sm={8}>
+                                        <Form.Control plaintext readOnly defaultValue={xx.data ? xx.data.Payments[0].id : 'Random'} />
+                                    </Col></Row></Col>
+                                <Col>
+                                    <Row>
+                                        <Col
+                                            sm={4}
+                                            className=" d-flex justify-content-end align-items-center "
+                                        ></Col>
+                                        <Col sm={8}></Col>
+                                    </Row>
+                                </Col>
+                            </Row>
+                            <Row className="mb-4">
+                                <Col><Row><Col sm={4} className=" d-flex justify-content-end align-items-center ">
+                                    <Form.Label className="mb-0">{data.R.TN[this.props.lang]}</Form.Label></Col>
+                                    <Col sm={8}>
+                                        <Form.Control plaintext readOnly defaultValue={xx.data ? xx.data.Payments[0].transactionNumber : 'Random'} />
+                                    </Col></Row></Col>
+                                <Col>
+                                    <Row>
+                                        <Col
+                                            sm={4}
+                                            className=" d-flex justify-content-end align-items-center "
+                                        ></Col>
+                                        <Col sm={8}></Col>
+                                    </Row>
+                                </Col>
+                            </Row>
+                            <Row className="mb-4">
+                                <Col><Row><Col sm={4} className=" d-flex justify-content-end align-items-center ">
+                                    <Form.Label>{data.R.PA[this.props.lang]}</Form.Label></Col>
+                                    <Col sm={8}>
+                                        <Form.Control plaintext readOnly defaultValue={xx.data ? xx.data.Payments[0].totalAmountPaid : 'NULL'} />
+                                    </Col></Row></Col>
+                                <Col>
+                                    <Row>
+                                        <Col
+                                            sm={4}
+                                            className=" d-flex justify-content-end align-items-center "
+                                        ></Col>
+                                        <Col sm={8}></Col>
+                                    </Row>
+                                </Col>
+                            </Row>
+                            <Button variant="primary" type="submit" onClick={e => this.handleSubmit(e)}>{data.R.PR[this.props.lang]}</Button>
+                        </Form>
+                    </Card>
+                </Container>
+
             </div>
 
         );
