@@ -6,10 +6,12 @@ import { Container, Form, Row, Col, Button } from "react-bootstrap";
 
 const thispropslang = 1;
 export default () => {
-  return (<div>
+  return (
+    <div>
       <Container>
-          <Form><div>
-<h4 className="mb-4">Sample</h4>
+        <Form>
+          <div>
+            <h4 className="mb-4">Sample</h4>
             <Row className="mb-2">
               <Col>
                 <Row>
@@ -103,8 +105,9 @@ export default () => {
         </Form>
       </Container>
       <div className="d-flex justify-content-center align-items-center mt-5">
-        <h6 className="mb-0">Backed by </h6>{" "}
-        <img src={digit} alt="Digit" height="20" />
-      </div></div>
+        <h6 className="mb-0">Powered by </h6>{" "}
+        <img src={digit} className="ml-2" alt="Digit" height="20" />
+      </div>
+    </div>
   );
 };

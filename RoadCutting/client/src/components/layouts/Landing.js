@@ -144,7 +144,7 @@ class Landing extends Component {
                   </div>
                   <div className="d-flex justify-content-center align-items-center mt-4">
                     <h6 className="mb-0">Powered by </h6>{" "}
-                    <img src={digit} alt="Digit" height="20" />
+                    <img src={digit} className="ml-2" alt="Digit" height="20" />
                   </div>
                 </Form>
               </div>

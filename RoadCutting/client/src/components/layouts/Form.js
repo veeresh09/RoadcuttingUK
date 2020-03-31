@@ -147,7 +147,9 @@ class RoadForm extends Component {
             </h3>
             <Form>
               <div>
-                <h4 className="font-weight-bold mb-4">Sample</h4>
+                <h4 className="font-weight-bold mb-4">
+                  {data.Form.UD[this.props.lang]}
+                </h4>
                 <Row className="mb-2">
                   <Col>
                     <Row>
@@ -415,7 +417,7 @@ class RoadForm extends Component {
               <br></br>
               <div>
                 <h4 className="font-weight-bold mt-5 mb-4">
-                  {data.Form.LRS[this.props.lang]}e
+                  {data.Form.LRS[this.props.lang]}
                 </h4>
                 <Row className="mb-2">
                   <Col>
@@ -641,8 +643,8 @@ class RoadForm extends Component {
           </div>
         </Container>
         <div className="d-flex justify-content-center align-items-center mt-5 mb-2">
-          <h6 className="mb-0">Backed by </h6>{" "}
-          <img src={digit} alt="Digit" height="20" />
+          <h6 className="mb-0">Powered by </h6>{" "}
+          <img src={digit} className="ml-2" alt="Digit" height="20" />
         </div>
       </div>
     );
