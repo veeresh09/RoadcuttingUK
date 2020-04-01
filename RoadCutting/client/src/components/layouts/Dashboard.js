@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux"; //import redux
+import data from "../../reducers/data";
 import Menu from "./Menu"; //To use top menu component;
 import Card from "react-bootstrap/Card"; //import card to diplay existing forms as card
 import Button from "react-bootstrap/Button";
@@ -35,21 +36,21 @@ class Dashboard extends Component {
         <Menu />
         {/* top menu component */}
         <div className="dashboard d-flex flex-column justify-content-center align-items-center ">
-          <div className="effect text-center mt-5">
-            <h4>RoadCutting Form</h4>
+          <div className="effect text-center mt-5 dashwidth">
+            <h4>{data.dashboard.NF[this.props.lang]}</h4>
 
             <Link to="Form">
               <Button className="mt-4" variant="dark">
-                New Form
+                {data.dashboard.NFB[this.props.lang]}
               </Button>
             </Link>
           </div>
-          <div className="effect text-center mt-5">
-            <h4>Search Filled forms</h4>
+          <div className="effect text-center mt-5 dashwidth">
+            <h4>{data.dashboard.SF[this.props.lang]}</h4>
 
             <Link to="Search">
               <Button className="mt-4" variant="dark">
-                Search
+                {data.dashboard.SFB[this.props.lang]}
               </Button>
             </Link>
           </div>
@@ -58,7 +59,6 @@ class Dashboard extends Component {
     );
   }
 }
-
 
 const mapStateToProps = state => {
   //Allows to access redux database
@@ -93,4 +93,3 @@ const mapDispatchToProps = dispatch => {
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
-

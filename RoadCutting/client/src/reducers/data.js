@@ -11,6 +11,12 @@ const data = {
   wardno: ["Ward No", "वार्ड नं"],
   validwardno: ["Enter a valid wardno", "एक मान्य वार्ड नंबर दर्ज करें"],
   Search: ["Search", "खोज"],
+  dashboard: {
+    NF: ["RoadCutting Form", "रोडकूट फॉर्म"],
+    NFB: ["New Form", "नया फ़ॉर्म"],
+    SF: ["Search Form", "खोज फ़ॉर्म"],
+    SFB: ["Search", "खोज"]
+  },
   Form: {
     RCF: ["Road Cutting Form", "रोड कटिंग फॉर्म"],
     UD: ["User Details", "उपयोगकर्ता की जानकारी"],
@@ -31,6 +37,7 @@ const data = {
     Loc: ["Locality/Street", "इलाका / स्ट्रीट"],
     RFRC: ["Reason for road cutting", "सड़क काटने का कारण"],
     CR: ["Category of Road", "सड़क की श्रेणी"],
+    RLength: ["Road length", "सड़क की लंबाई"],
     Cost: ["Cost in Rs.", "लागत में रु."],
     Submit: ["Submit", "प्रस्तुत"]
   },

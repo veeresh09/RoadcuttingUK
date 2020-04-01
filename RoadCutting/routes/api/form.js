@@ -203,8 +203,8 @@ router.post(
             consumerCode: consumerCode,
             mobileNumber: mobile,
             consumerName: name,
-            serviceType: "RC",
-            businessService: "RC",
+            serviceType: "RC.road_cutting",
+            businessService: "RC.road_cutting",
             demandDetails: [
               {
                 taxHeadMasterCode: "RC_TAX",

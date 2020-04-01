@@ -57,3 +57,11 @@ code {
   left: 0px;
   background: rgba(0, 0, 0, 0.4);
 }
+
+.fullwidth {
+  width: 60%;
+}
+
+.dashwidth {
+  width: 30%;
+}
