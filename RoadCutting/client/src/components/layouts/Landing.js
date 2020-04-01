@@ -82,7 +82,8 @@ class Landing extends Component {
         console.log(res);
         console.log("Succesfull");
         console.log(this.props);
-        this.props.history.push("/Dashboard");
+        //this.props.history.push("/Dashboard");
+        this.props.handleSuccesfulAuth();
       }
     } catch (error) {
       alert(error);
@@ -104,7 +105,7 @@ class Landing extends Component {
                 </div>
                 <Form>
                   <Form.Group controlId="formBasic">
-                    <Form.Label>{data.Username[this.props.lang]}</Form.Label>
+                    <Form.Label>Username/उपयोगकर्ता नाम</Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="Enter userName"
@@ -113,7 +114,7 @@ class Landing extends Component {
                     />
                   </Form.Group>
                   <Form.Group controlId="formBasicPassword">
-                    <Form.Label>{data.Password[this.props.lang]}</Form.Label>
+                    <Form.Label>Password/कुंजिका</Form.Label>
                     <Form.Control
                       type="password"
                       placeholder="Password"
@@ -122,7 +123,7 @@ class Landing extends Component {
                     />
                   </Form.Group>
                   <Form.Group>
-                    <Form.Label>{data.City[this.props.lang]}</Form.Label>
+                    <Form.Label>City/शहर</Form.Label>
 
                     <Form.Control as="select" onChange={this.handlechang}>
                       {/* Dropdown for selecting district of user */}
@@ -139,12 +140,12 @@ class Landing extends Component {
                       type="submit"
                       onClick={this.handleSubmit}
                     >
-                      Submit
+                      Login/लॉग इन
                     </Button>
                   </div>
                   <div className="d-flex justify-content-center align-items-center mt-4">
                     <h6 className="mb-0">Powered by </h6>{" "}
-                    <img src={digit} className="ml-2" alt="Digit" height="20" />
+                    <img src={digit} alt="Digit" height="20" />
                   </div>
                 </Form>
               </div>
