@@ -1,6 +1,7 @@
 const data = {
   URD: ["Uttarakhand Road Cutting", "उत्तराखंड रोड कटिंग"],
   Signin: ["Sign into Your Account", "अपने अकाउंट में साइन इन करें"],
+  RC: ["Road Cutting Form", "रोड कटिंग फॉर्म"],
   Username: ["Username", "उपयोगकर्ता नाम"],
   Password: ["Password", "कुंजिका"],
   City: ["City", "शहर "],
@@ -37,6 +38,7 @@ const data = {
     PP: ["Payement Collection Form", "भुगतान पृष्ठ"],
     PI: ["Payment Information", "भुगतान की जानकारी"],
     UI: ["Unique ID", "अद्वितीय  पहचान"],
+    CC: ["Consumer Code", "उपभोक्ता कोड"],
     PCD: ["Payement Details", "भुगतान संग्रह विवरण"],
     FD: ["Fee Details", "शुल्क का विवरण"],
     TA: ["Total Amount", "कुल रकम :"],
@@ -58,6 +60,7 @@ const data = {
     PID: ["Payment ID:", "भुगतान आईडी:"],
     TN: ["Transaction Number :", "लेन - देन संख्या :"],
     PA: ["Payment Amount :", "भुगतान राशि :"],
+    CC: ["Consumer Code", "उपभोक्ता कोड"],
     PR: ["Print Reciept", "प्रिंट रसीद"]
   },
   N: {
