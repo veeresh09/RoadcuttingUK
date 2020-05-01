@@ -12,6 +12,12 @@ const data = {
   wardno: ["Ward No", "वार्ड नं"],
   validwardno: ["Enter a valid wardno", "एक मान्य वार्ड नंबर दर्ज करें"],
   Search: ["Search", "खोज"],
+  dashboard: {
+    NF: ["RoadCutting Form", "रोडकूट फॉर्म"],
+    NFB: ["New Form", "नया फ़ॉर्म"],
+    SF: ["Search Form", "खोज फ़ॉर्म"],
+    SFB: ["Search", "खोज"],
+  },
   Form: {
     RCF: ["Road Cutting Form", "रोड कटिंग फॉर्म"],
     UD: ["User Details", "उपयोगकर्ता की जानकारी"],
@@ -32,8 +38,9 @@ const data = {
     Loc: ["Locality/Street", "इलाका / स्ट्रीट"],
     RFRC: ["Reason for road cutting", "सड़क काटने का कारण"],
     CR: ["Category of Road", "सड़क की श्रेणी"],
+    RLength: ["Road length", "सड़क की लंबाई"],
     Cost: ["Cost in Rs.", "लागत में रु."],
-    Submit: ["Submit", "प्रस्तुत"]
+    Submit: ["Submit", "प्रस्तुत"],
   },
   PP: {
     PP: ["Payement Collection Form", "भुगतान पृष्ठ"],
@@ -49,11 +56,11 @@ const data = {
     PCont: ["Payer Contact", "भुगतानकर्ता संपर्क करें"],
     MSCRD: [
       "MSC5/MSC2 Reciept Details (Optional)",
-      "MSC5 / MSC2 पुनः विवरण विवरण (वैकल्पिक)"
+      "MSC5 / MSC2 पुनः विवरण विवरण (वैकल्पिक)",
     ],
     MSCRNO: ["Reciept No", "MSC5 / MSC2 प्राप्त संख्या"],
     MSCRID: ["Reciept Issue Date", "MSC5 / MSC2 जारी करने की तिथि"],
-    colp: ["Collect Payment", "भुगतान प्राप्त करें"]
+    colp: ["Collect Payment", "भुगतान प्राप्त करें"],
   },
   R: {
     R: ["Reciept", "रसीद"],
@@ -62,13 +69,13 @@ const data = {
     TN: ["Transaction Number :", "लेन - देन संख्या :"],
     PA: ["Payment Amount :", "भुगतान राशि :"],
     CC: ["Consumer Code", "उपभोक्ता कोड"],
-    PR: ["Print Reciept", "प्रिंट रसीद"]
+    PR: ["Print Reciept", "प्रिंट रसीद"],
   },
   N: {
     D: ["Dashboard", "डैशबोर्ड"],
     NF: ["New Form", "नया आवेदन"],
     S: ["Search", "खोज"],
-    SO: ["Sign Out", "लॉग आउट"]
-  }
+    SO: ["Sign Out", "लॉग आउट"],
+  },
 };
 export default data;

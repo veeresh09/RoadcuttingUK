@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import Landing from './Landing';
+import React, { Component } from "react";
+import Landing from "./Landing";
 //This is main componenet which opens as soon as website loads
 export default class Home extends Component {
   constructor(props) {
@@ -8,7 +8,7 @@ export default class Home extends Component {
   }
 
   handleSuccesfulAuth() {
-    this.props.history.push("/dashboard");//redirecting to dahboard after sucesful login
+    this.props.history.push("/dashboard"); //redirecting to dahboard after sucesful login
   }
   render() {
     return (
@@ -18,6 +18,6 @@ export default class Home extends Component {
           {/* Login Component */}
         </center>
       </div>
-    )
+    );
   }
 }

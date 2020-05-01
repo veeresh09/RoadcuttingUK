@@ -125,6 +125,62 @@ class RoadForm extends Component {
     }
   }
 
+  calculateCost(name, value) {
+    let { road_cuttingReason, road_category, road_length } = this.state;
+
+    if (name === "road_length" && road_category && road_cuttingReason) {
+      let road_category_value = 0;
+      let road_cuttingReason_value = 0;
+      let road_length_value = value;
+      let cost = 0;
+      if (road_category === "Sewer Line") road_category_value = 10;
+      if (road_category === "Jai Shanthan") road_category_value = 20;
+      if (road_category === "Right of way") road_category_value = 30;
+      if (road_cuttingReason === "type1") road_cuttingReason_value = 10;
+      if (road_cuttingReason === "type2") road_cuttingReason_value = 20;
+      if (road_cuttingReason === "type3") road_cuttingReason_value = 30;
+      if (road_cuttingReason === "type4") road_cuttingReason_value = 40;
+
+      cost = road_category_value * road_cuttingReason_value * road_length_value;
+
+      this.setState({ road_totalcost: cost });
+    } else if (name === "road_category" && road_length && road_cuttingReason) {
+      road_category = value;
+      let road_category_value = 0;
+      let road_cuttingReason_value = 0;
+      let road_length_value = road_length;
+      let cost = 0;
+      if (road_category === "Sewer Line") road_category_value = 10;
+      if (road_category === "Jai Shanthan") road_category_value = 20;
+      if (road_category === "Right of way") road_category_value = 30;
+      if (road_cuttingReason === "type1") road_cuttingReason_value = 10;
+      if (road_cuttingReason === "type2") road_cuttingReason_value = 20;
+      if (road_cuttingReason === "type3") road_cuttingReason_value = 30;
+      if (road_cuttingReason === "type4") road_cuttingReason_value = 40;
+
+      cost = road_category_value * road_cuttingReason_value * road_length_value;
+
+      this.setState({ road_totalcost: cost });
+    } else if (name === "road_cuttingReason" && road_category && road_length) {
+      road_cuttingReason = value;
+      let road_category_value = 0;
+      let road_cuttingReason_value = 0;
+      let road_length_value = road_length;
+      let cost = 0;
+      if (road_category === "Sewer Line") road_category_value = 10;
+      if (road_category === "Jai Shanthan") road_category_value = 20;
+      if (road_category === "Right of way") road_category_value = 30;
+      if (road_cuttingReason === "type1") road_cuttingReason_value = 10;
+      if (road_cuttingReason === "type2") road_cuttingReason_value = 20;
+      if (road_cuttingReason === "type3") road_cuttingReason_value = 30;
+      if (road_cuttingReason === "type4") road_cuttingReason_value = 40;
+
+      cost = road_category_value * road_cuttingReason_value * road_length_value;
+
+      this.setState({ road_totalcost: cost });
+    }
+  }
+
   render() {
     //below code is to load localities on selecting the ward no
     let nam = [];
@@ -549,11 +605,15 @@ class RoadForm extends Component {
                         <Form.Control
                           as="select"
                           value={this.state.road_cuttingReason}
-                          onChange={e =>
+                          onChange={e => {
                             this.setState({
                               road_cuttingReason: e.target.value
-                            })
-                          }
+                            });
+                            this.calculateCost(
+                              "road_cuttingReason",
+                              e.target.value
+                            );
+                          }}
                         >
                           <option value="">select type of work</option>
                           <option value="type1">type1</option>
@@ -579,9 +639,10 @@ class RoadForm extends Component {
                         <Form.Control
                           as="select"
                           value={this.state.road_category}
-                          onChange={e =>
-                            this.setState({ road_category: e.target.value })
-                          }
+                          onChange={e => {
+                            this.setState({ road_category: e.target.value });
+                            this.calculateCost("road_category", e.target.value);
+                          }}
                         >
                           <option value="">select work type</option>
                           <option value="Sewer Line">Sewer Line</option>
@@ -600,6 +661,32 @@ class RoadForm extends Component {
                         className="d-flex justify-content-end align-items-center"
                       >
                         <Form.Label className="mb-0 text-right">
+                          {data.Form.RLength[this.props.lang]}
+                        </Form.Label>
+                      </Col>
+                      <Col sm={8}>
+                        <Form.Control
+                          type="text"
+                          id="road_length"
+                          name="road_length"
+                          placeholder="in Meters"
+                          value={this.state.road_length}
+                          onChange={e => {
+                            this.setState({ road_length: e.target.value });
+                            this.calculateCost("road_length", e.target.value);
+                          }}
+                        />
+                      </Col>
+                    </Row>
+                  </Col>
+
+                  <Col>
+                    <Row>
+                      <Col
+                        sm={4}
+                        className=" d-flex justify-content-end align-items-center "
+                      >
+                        <Form.Label className="mb-0 text-right">
                           {data.Form.Cost[this.props.lang]}
                         </Form.Label>
                       </Col>
@@ -615,16 +702,6 @@ class RoadForm extends Component {
                           }
                         />
                       </Col>
-                    </Row>
-                  </Col>
-
-                  <Col>
-                    <Row>
-                      <Col
-                        sm={4}
-                        className=" d-flex justify-content-end align-items-center "
-                      ></Col>
-                      <Col sm={8}></Col>
                     </Row>
                   </Col>
                 </Row>

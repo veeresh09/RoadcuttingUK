@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import axios from 'axios';
-import data from "../../reducers/data";//importing localization data
-import { Button, Form, Col, Row, Container } from 'react-bootstrap';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import axios from "axios";
+import data from "../../reducers/data"; //importing localization data
+import { Button, Form, Col, Row, Container } from "react-bootstrap";
 import Menu from "./Menu";
 import digit from "../../assets/digit.svg";
 var obj;
 var nam = [];
 
-
 class editForm extends Component {
   constructor(props) {
     super(props);
     console.log(this.props);
-    this.state = { // recieved  data from previous entry 
+    this.state = {
+      // recieved  data from previous entry
       name: this.props.formdata.name,
       fatherName: this.props.formdata.fatherName,
       mobile: this.props.formdata.mobile,
@@ -25,7 +25,8 @@ class editForm extends Component {
       address2: this.props.formdata.address2,
       pincode: this.props.formdata.pincode,
       road_district: this.props.formdata.road_district,
-      road_urban_local_body_name: this.props.formdata.road_urban_local_body_name,
+      road_urban_local_body_name: this.props.formdata
+        .road_urban_local_body_name,
       road_ward_no: this.props.formdata.road_ward_no,
       road_locality: this.props.formdata.road_locality,
       road_cuttingReason: this.props.formdata.road_cuttingReason,
@@ -33,33 +34,72 @@ class editForm extends Component {
       road_totalcost: this.props.formdata.road_totalcost,
       consumerCode: this.props.formdata.consumCode,
       localarr: [],
-      error: null
-    }
+      error: null,
+    };
     const auth_token = this.props.auth_token;
     console.log(auth_token);
   }
   async handleFormSubmit(event) {
     event.preventDefault();
-    console.log('submitted');
-    const { name, fatherName, mobile, email, applicantType, district, areaType, address1, address2, pincode, road_district, road_urban_local_body_name, road_ward_no, road_locality, road_cuttingReason, road_category, road_totalcost, consumerCode } = this.state;
-    const userid = this.props.formdata._id;//id of entry  saved in mongodB database
+    console.log("submitted");
+    const {
+      name,
+      fatherName,
+      mobile,
+      email,
+      applicantType,
+      district,
+      areaType,
+      address1,
+      address2,
+      pincode,
+      road_district,
+      road_urban_local_body_name,
+      road_ward_no,
+      road_locality,
+      road_cuttingReason,
+      road_category,
+      road_totalcost,
+      consumerCode,
+    } = this.state;
+    const userid = this.props.formdata._id; //id of entry  saved in mongodB database
     console.log(userid);
-    const body = JSON.stringify({ userid, name, fatherName, mobile, email, applicantType, district, areaType, address1, address2, pincode, road_district, road_urban_local_body_name, road_ward_no, road_locality, road_cuttingReason, road_category, road_totalcost, consumerCode });
+    const body = JSON.stringify({
+      userid,
+      name,
+      fatherName,
+      mobile,
+      email,
+      applicantType,
+      district,
+      areaType,
+      address1,
+      address2,
+      pincode,
+      road_district,
+      road_urban_local_body_name,
+      road_ward_no,
+      road_locality,
+      road_cuttingReason,
+      road_category,
+      road_totalcost,
+      consumerCode,
+    });
     console.log(body);
     const config = {
       headers: {
-        'Content-Type': 'application/json'
-      }
+        "Content-Type": "application/json",
+      },
     };
     try {
-      const res = await axios.post('/form/update', body, config);// calls backend api to save data in mongodB
+      const res = await axios.post("/form/update", body, config); // calls backend api to save data in mongodB
       if (res.status === 200) {
         console.log("Succesfull");
-        alert('Form submitted');
+        alert("Form submitted");
         console.log(res);
       }
     } catch (error) {
-      alert(error)
+      alert(error);
     }
   }
 
@@ -107,7 +147,7 @@ class editForm extends Component {
                           name="name"
                           placeholder="Your name.."
                           value={this.state.name}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.setState({ name: e.target.value })
                           }
                         />
@@ -132,7 +172,7 @@ class editForm extends Component {
                           name="fatherName"
                           placeholder="Your father's name.."
                           value={this.state.fatherName}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.setState({ fatherName: e.target.value })
                           }
                         />
@@ -158,7 +198,7 @@ class editForm extends Component {
                           name="mobile"
                           placeholder="Your mobile mobile.."
                           value={this.state.mobile}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.setState({ mobile: e.target.value })
                           }
                         />
@@ -183,7 +223,7 @@ class editForm extends Component {
                           name="email"
                           placeholder="Your email.."
                           value={this.state.email}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.setState({ email: e.target.value })
                           }
                         />
@@ -206,7 +246,7 @@ class editForm extends Component {
                         <Form.Control
                           as="select"
                           value={this.state.applicantType}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.setState({ applicantType: e.target.value })
                           }
                         >
@@ -237,7 +277,7 @@ class editForm extends Component {
                           name="district"
                           placeholder="Your district.."
                           value={this.state.district}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.setState({ district: e.target.value })
                           }
                         />
@@ -266,7 +306,7 @@ class editForm extends Component {
                           name="address1"
                           placeholder="Address line 1.."
                           value={this.state.address1}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.setState({ address1: e.target.value })
                           }
                         />
@@ -292,7 +332,7 @@ class editForm extends Component {
                           name="address2"
                           placeholder="Address Line 2.."
                           value={this.state.address2}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.setState({ address2: e.target.value })
                           }
                         />
@@ -315,7 +355,7 @@ class editForm extends Component {
                         <Form.Control
                           as="select"
                           value={this.state.areaType}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.setState({ areaType: e.target.value })
                           }
                         >
@@ -344,7 +384,7 @@ class editForm extends Component {
                           name="pincode"
                           placeholder="pin code .."
                           value={this.state.pincode}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.setState({ pincode: e.target.value })
                           }
                         />
@@ -372,11 +412,11 @@ class editForm extends Component {
                       <Col sm={8}>
                         <Form.Control
                           as="select"
-                          onChange={e =>
+                          onChange={(e) =>
                             this.setState({ road_district: e.target.value })
                           }
                         >
-                          {nam.map(item => (
+                          {nam.map((item) => (
                             <option key={item.id} value={item.city}>
                               {item.city}
                             </option>
@@ -400,16 +440,16 @@ class editForm extends Component {
                         <Form.Control
                           as="select"
                           value={this.state.road_ward_no}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.setState({
                               road_ward_no: e.target.value,
                               localarr: this.props.mdmsdata.localarray[
                                 e.target.value.match(/\d+/g)
-                              ]
+                              ],
                             })
                           }
                         >
-                          {wards.map(item => (
+                          {wards.map((item) => (
                             <option key={item.id} value={item.city}>
                               {item.city}
                             </option>
@@ -434,13 +474,13 @@ class editForm extends Component {
                         <Form.Control
                           as="select"
                           value={this.state.road_urban_local_body_name}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.setState({
-                              road_urban_local_body_name: e.target.value
+                              road_urban_local_body_name: e.target.value,
                             })
                           }
                         >
-                          {this.state.localarr.map(item => (
+                          {this.state.localarr.map((item) => (
                             <option value={item}>{item}</option>
                           ))}
                         </Form.Control>
@@ -465,7 +505,7 @@ class editForm extends Component {
                           name="road_locality"
                           placeholder="Locality/Street"
                           value={this.state.road_locality}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.setState({ road_locality: e.target.value })
                           }
                         />
@@ -488,11 +528,15 @@ class editForm extends Component {
                         <Form.Control
                           as="select"
                           value={this.state.road_cuttingReason}
-                          onChange={e =>
+                          onChange={(e) => {
                             this.setState({
-                              road_cuttingReason: e.target.value
-                            })
-                          }
+                              road_cuttingReason: e.target.value,
+                            });
+                            this.calculateCost(
+                              "road_cuttingReason",
+                              e.target.value
+                            );
+                          }}
                         >
                           <option value="">select type of work</option>
                           <option value="type1">type1</option>
@@ -518,9 +562,10 @@ class editForm extends Component {
                         <Form.Control
                           as="select"
                           value={this.state.road_category}
-                          onChange={e =>
-                            this.setState({ road_category: e.target.value })
-                          }
+                          onChange={(e) => {
+                            this.setState({ road_category: e.target.value });
+                            this.calculateCost("road_category", e.target.value);
+                          }}
                         >
                           <option value="">select work type</option>
                           <option value="Sewer Line">Sewer Line</option>
@@ -539,19 +584,20 @@ class editForm extends Component {
                         className="d-flex justify-content-end align-items-center"
                       >
                         <Form.Label className="mb-0 text-right">
-                          {data.Form.Cost[this.props.lang]}
+                          {data.Form.RLength[this.props.lang]}
                         </Form.Label>
                       </Col>
                       <Col sm={8}>
                         <Form.Control
                           type="text"
-                          id="road_totalcost"
-                          name="road_totalcost"
-                          placeholder="in Rs."
-                          value={this.state.road_totalcost}
-                          onChange={e =>
-                            this.setState({ road_totalcost: e.target.value })
-                          }
+                          id="road_length"
+                          name="road_length"
+                          placeholder="in Meters"
+                          value={this.state.road_length}
+                          onChange={(e) => {
+                            this.setState({ road_length: e.target.value });
+                            this.calculateCost("road_length", e.target.value);
+                          }}
                         />
                       </Col>
                     </Row>
@@ -562,8 +608,23 @@ class editForm extends Component {
                       <Col
                         sm={4}
                         className=" d-flex justify-content-end align-items-center "
-                      ></Col>
-                      <Col sm={8}></Col>
+                      >
+                        <Form.Label className="mb-0 text-right">
+                          {data.Form.Cost[this.props.lang]}
+                        </Form.Label>
+                      </Col>
+                      <Col sm={8}>
+                        <Form.Control
+                          type="text"
+                          id="road_totalcost"
+                          name="road_totalcost"
+                          placeholder="in Rs."
+                          value={this.state.road_totalcost}
+                          onChange={(e) =>
+                            this.setState({ road_totalcost: e.target.value })
+                          }
+                        />
+                      </Col>
                     </Row>
                   </Col>
                 </Row>
@@ -573,7 +634,7 @@ class editForm extends Component {
                 <Button
                   type="submit"
                   variant="dark"
-                  onClick={e => this.handleFormSubmit(e)}
+                  onClick={(e) => this.handleFormSubmit(e)}
                 >
                   {data.Form.Submit[this.props.lang]}
                 </Button>
@@ -585,33 +646,31 @@ class editForm extends Component {
           <h6 className="mb-0">Powered by </h6>{" "}
           <img src={digit} className="ml-2" alt="Digit" height="20" />
         </div>
-      </div >
+      </div>
     );
   }
 }
-const mapStateToProps = state => {
-  //Allows to access redux database
-
+const mapStateToProps = (state) => {
   return {
     user: state.user,
     password: state.password,
     auth_token: state.auth_token,
+    formdata: state.formdata,
     auth_tokenid: state.auth_tokenid,
     nam: state.nam,
     consumCode: state.consumCode,
     mdmsdata: state.mdmsdata,
     formdata: state.formdata,
-    lang: state.lang
+    lang: state.lang,
   };
 };
-const mapDispatchToProps = dispatch => {
-
+const mapDispatchToProps = (dispatch) => {
   // To Functions defined redux to change variables stored in redux
 
   return {
-    edit_consumCode: consumCode => {
+    edit_consumCode: (consumCode) => {
       dispatch({ type: "CONSUMCODEEDIT", consumCode: consumCode });
-    }
+    },
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(editForm);//used to connect componenet with redux
+export default connect(mapStateToProps, mapDispatchToProps)(editForm); //used to connect componenet with redux

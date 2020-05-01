@@ -7,6 +7,8 @@ import Card from "react-bootstrap/Card"; //import card to diplay existing forms 
 import { Button, Form, Row, Col, Container } from "react-bootstrap";
 import Sidebar from "./Sidebar";
 import Topbar from "./Menu";
+import digit from "../../assets/digit.svg";
+
 var items = [];
 class Search extends Component {
   constructor(props) {
@@ -201,6 +203,10 @@ class Search extends Component {
 
           <div>{disp}</div>
         </Container>
+        <div className="d-flex justify-content-center align-items-center mt-5 mb-2">
+          <h6 className="mb-0">Powered by </h6>{" "}
+          <img src={digit} className="ml-2" alt="Digit" height="20" />
+        </div>
       </>
     );
   }

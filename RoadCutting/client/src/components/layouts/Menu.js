@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Navbar, Form, Nav, NavDropdown, FormControl, Button } from "react-bootstrap";
+import {
+  Navbar,
+  Form,
+  Nav,
+  NavDropdown,
+  FormControl,
+  Button,
+} from "react-bootstrap";
 import ukdlogo from "../../assets/ukdlogo.svg";
 import { connect } from "react-redux"; //import redux
 import { Link } from "react-router-dom";
@@ -26,7 +33,8 @@ class Sidebar extends Component {
     return (
       <>
         <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="#home">{/*Inserting Logo */}
+          <Navbar.Brand href="#home">
+            {/*Inserting Logo */}
             <img
               alt=""
               src={ukdlogo}
@@ -55,44 +63,53 @@ class Sidebar extends Component {
               </Link>
             </Nav.Link> */}
             <NavDropdown title="Choose Language" id="basic-nav-dropdown">
-              <NavDropdown.Item onClick={e => this.handleSubmit(e)}>English</NavDropdown.Item>
-              <NavDropdown.Item onClick={e => this.handleSubmite(e)}>हिन्दी</NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown title={data.RC[this.props.lang]} id="basic-nav-dropdown">
-              <NavDropdown.Item><Link className="link" to="Search">
-                {data.N.S[this.props.lang]}
-              </Link>
+              <NavDropdown.Item onClick={(e) => this.handleSubmit(e)}>
+                English
               </NavDropdown.Item>
-              <NavDropdown.Item><Link className="link" to="Form">
-                {data.N.NF[this.props.lang]}
-              </Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item><Link className="link" to="Dashboard">
-                {data.N.D[this.props.lang]}
-              </Link>
+              <NavDropdown.Item onClick={(e) => this.handleSubmite(e)}>
+                हिन्दी
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href='/'>
-              {data.N.SO[this.props.lang]}
-            </Nav.Link>
+            <NavDropdown
+              title={data.RC[this.props.lang]}
+              id="basic-nav-dropdown"
+            >
+              <NavDropdown.Item>
+                <Link className="link" to="Search">
+                  {data.N.S[this.props.lang]}
+                </Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link className="link" to="Form">
+                  {data.N.NF[this.props.lang]}
+                </Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link className="link" to="Dashboard">
+                  {data.N.D[this.props.lang]}
+                </Link>
+              </NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link href="/">{data.N.SO[this.props.lang]}</Nav.Link>
           </Nav>
-
         </Navbar>
       </>
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   //Allows to access redux database
   return {
-    lang: state.lang
+    lang: state.lang,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   // To Functions defined redux to change variables stored in redux
 
   return {
-    edit_lang: (lang) => { dispatch({ type: 'CHANGELANG', lang: lang }) },
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);//used to connect componenet with redux
+    edit_lang: (lang) => {
+      dispatch({ type: "CHANGELANG", lang: lang });
+    },
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar); //used to connect componenet with redux

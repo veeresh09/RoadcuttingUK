@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux"; //import redux
+import data from "../../reducers/data";
 import Menu from "./Menu"; //To use top menu component;
 import Card from "react-bootstrap/Card"; //import card to diplay existing forms as card
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import { CardGroup } from "react-bootstrap";
-import data from "../../reducers/data";
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -19,13 +19,13 @@ class Dashboard extends Component {
       const body = JSON.stringify({ auth_token });
       const config = {
         headers: {
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       };
-      const res = await axios.post("/form/cities", body, config);//  calling the api to store the localities data in redux
+      const res = await axios.post("/form/cities", body, config); //  calling the api to store the localities data in redux
       console.log(res);
       res.data.wardnumbers[0] = "Select ward Number";
-      await this.props.load_data(res.data);//saving data recieved from api to redux
+      await this.props.load_data(res.data); //saving data recieved from api to redux
     } catch (error) {
       alert(error);
     }
@@ -60,8 +60,7 @@ class Dashboard extends Component {
   }
 }
 
-
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   //Allows to access redux database
   return {
     user: state.user,
@@ -69,28 +68,28 @@ const mapStateToProps = state => {
     auth_token: state.auth_token,
     formdata: state.formdata,
     mdmsdata: state.mdmsdata,
-    lang: state.lang
+    lang: state.lang,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   // To Functions defined redux to change variables stored in redux
   return {
-    edit_user: user => {
+    edit_user: (user) => {
       dispatch({ type: "EDIT_USERNAME", user: user });
     },
-    edit_pass: password => {
+    edit_pass: (password) => {
       dispatch({ type: "EDIT_PASSWORD", password: password });
     },
-    edit_auth: auth_token => {
+    edit_auth: (auth_token) => {
       dispatch({ type: "AUTHENTICATE", auth_token: auth_token });
     },
-    copy_form: formdata => {
+    copy_form: (formdata) => {
       dispatch({ type: "COPYFORMDETAILS", formdata: formdata });
     },
-    load_data: mdmsdata => {
+    load_data: (mdmsdata) => {
       dispatch({ type: "DATALOAD", mdmsdata: mdmsdata });
-    }
+    },
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard); //used to connect componenet with redux
