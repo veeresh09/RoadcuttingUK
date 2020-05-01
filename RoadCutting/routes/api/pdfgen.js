@@ -26,10 +26,11 @@ router.post("/", async (req, res) => {
       },
       body: JSON.stringify(req.body)
     };
-    request(options, function(error, response) {
+    request(options, function (error, response) {
       if (error) throw new Error(error);
       var obj = JSON.parse(response.body);
       res.status(response.statusCode).json(obj);
+      // console.log(res);
     });
   } catch (error) {
     res.status(500).send(error);

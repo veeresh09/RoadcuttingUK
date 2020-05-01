@@ -203,8 +203,8 @@ router.post(
             consumerCode: consumerCode,
             mobileNumber: mobile,
             consumerName: name,
-            serviceType: "RC",
-            businessService: "RC",
+            serviceType: "RC.road_cutting",
+            businessService: "RC.road_cutting",
             demandDetails: [
               {
                 taxHeadMasterCode: "RC_TAX",
@@ -212,7 +212,7 @@ router.post(
                 taxAmount: road_totalcost
               }
             ],
-            taxPeriodFrom: secondsSinceEpoch,
+            taxPeriodFrom: secondsSinceEpoch - 5000,
             taxPeriodTo: secondsSinceEpoch,
             additionalDetails: {
               comment: "Road Cutting Charges"
@@ -220,7 +220,7 @@ router.post(
             payer: {
               uuid: ""
             },
-            consumerType: "RC"
+            consumerType: "RC.road_cutting"
           }
         ]
       };
@@ -247,7 +247,7 @@ router.post(
         },
         body: JSON.stringify(requ)
       };
-      await request(options, function(error, response) {
+      await request(options, function (error, response) {
         if (error) throw new Error(error);
         //console.log(response.body);
         res.status(response.statusCode).json(JSON.parse(response.body));

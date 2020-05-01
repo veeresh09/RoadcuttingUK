@@ -1,7 +1,8 @@
-const express = require("express");
+const express = require("express");// required to create api
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
 var obj;
+// defining get request end point
 router.get("/", async (req, res) => {
   const request = require("request");
   const options = {
@@ -28,12 +29,14 @@ router.get("/", async (req, res) => {
       }
     })
   };
-  request(options, function(error, response) {
+  request(options, function (error, response) {
     if (error) throw new Error(error);
     obj = JSON.parse(response.body);
     res.status(200).json(obj);
   });
 });
+// defining post request end point
+
 router.post(
   "/",
   [
@@ -82,7 +85,7 @@ router.post(
         userType: "EMPLOYEE"
       }
     };
-    request(options, function(error, response) {
+    request(options, function (error, response) {
       if (error) throw new Error(error);
       var obj = JSON.parse(response.body);
       res.status(response.statusCode).json(obj);

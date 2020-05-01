@@ -1,6 +1,8 @@
 const data = {
   URD: ["Uttarakhand Road Cutting", "उत्तराखंड रोड कटिंग"],
   Signin: ["Sign into Your Account", "अपने अकाउंट में साइन इन करें"],
+  RC: ["Road Cutting Form", "रोड कटिंग फॉर्म"],
+  SFD: ["Search Filled Forms", "भरे हुए फॉर्म सर्च करें"],
   Username: ["Username", "उपयोगकर्ता नाम"],
   Password: ["Password", "कुंजिका"],
   City: ["City", "शहर "],
@@ -12,6 +14,7 @@ const data = {
   Search: ["Search", "खोज"],
   Form: {
     RCF: ["Road Cutting Form", "रोड कटिंग फॉर्म"],
+    UD: ["User Details", "उपयोगकर्ता की जानकारी"],
     YGI: ["Your General Information", "आपकी सामान्य जानकारी"],
     AN: ["Applicants Name", "आवेदक का नाम"],
     Fhn: ["Father's/Husband's Name", "पिता / पति का नाम"],
@@ -33,12 +36,13 @@ const data = {
     Submit: ["Submit", "प्रस्तुत"]
   },
   PP: {
-    PP: ["Payment Page", "भुगतान पृष्ठ"],
+    PP: ["Payement Collection Form", "भुगतान पृष्ठ"],
     PI: ["Payment Information", "भुगतान की जानकारी"],
-    UI: ["Unique ID:", "अद्वितीय  पहचान"],
-    PCD: ["Payement Collection Details", "भुगतान संग्रह विवरण"],
+    UI: ["Unique ID", "अद्वितीय  पहचान"],
+    CC: ["Consumer Code", "उपभोक्ता कोड"],
+    PCD: ["Payement Details", "भुगतान संग्रह विवरण"],
     FD: ["Fee Details", "शुल्क का विवरण"],
-    TA: ["Total Amount :", "कुल रकम :"],
+    TA: ["Total Amount", "कुल रकम :"],
     CP: ["Capture Payment", "भुगतान प्राप्त करें"],
     PB: ["Paid By", "द्वारा भुगतान"],
     PN: ["Payer Name", "भुगतानकर्ता का नाम"],
@@ -47,8 +51,8 @@ const data = {
       "MSC5/MSC2 Reciept Details (Optional)",
       "MSC5 / MSC2 पुनः विवरण विवरण (वैकल्पिक)"
     ],
-    MSCRNO: ["MSC5/MSC2 Reciept No", "MSC5 / MSC2 प्राप्त संख्या"],
-    MSCRID: ["MSC5/MSC2 Reciept Issue Date", "MSC5 / MSC2 जारी करने की तिथि"],
+    MSCRNO: ["Reciept No", "MSC5 / MSC2 प्राप्त संख्या"],
+    MSCRID: ["Reciept Issue Date", "MSC5 / MSC2 जारी करने की तिथि"],
     colp: ["Collect Payment", "भुगतान प्राप्त करें"]
   },
   R: {
@@ -57,6 +61,7 @@ const data = {
     PID: ["Payment ID:", "भुगतान आईडी:"],
     TN: ["Transaction Number :", "लेन - देन संख्या :"],
     PA: ["Payment Amount :", "भुगतान राशि :"],
+    CC: ["Consumer Code", "उपभोक्ता कोड"],
     PR: ["Print Reciept", "प्रिंट रसीद"]
   },
   N: {

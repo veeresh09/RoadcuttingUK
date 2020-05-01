@@ -14,9 +14,10 @@ router.post("/", async (req, res) => {
       url: url,
       headers: {}
     };
-    request(options, function(error, response) {
+    request(options, function (error, response) {
       if (error) throw new Error(error);
       res.status(response.statusCode).send(response.body);
+      // console.log(res.body);
     });
   } catch (error) {
     res.status(500).send(error);

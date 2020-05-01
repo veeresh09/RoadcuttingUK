@@ -1,10 +1,10 @@
 //Road cutting form page
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import axios from "axios";
-import data from "../../reducers/data";
+import axios from "axios";//used to call apis
+import data from "../../reducers/data"; // importing localization data
 import { Button, Form, Row, Col, Container } from "react-bootstrap";
-import Menu from "./Menu";
+import Menu from "./Menu";//importing topbar
 import digit from "../../assets/digit.svg";
 var obj;
 var consumerCode;
@@ -126,6 +126,7 @@ class RoadForm extends Component {
   }
 
   render() {
+    //below code is to load localities on selecting the ward no
     let nam = [];
     let wards = [];
     this.props.mdmsdata.wardnumbers = this.props.mdmsdata.wardnumbers
@@ -134,7 +135,6 @@ class RoadForm extends Component {
     for (let i = 0; i < this.props.mdmsdata.wardnumbers.length; i++) {
       wards.push({ id: i + 1, city: this.props.mdmsdata.wardnumbers[i] });
     }
-    //console.log(this.props.mdmsdata.wardnumbers[1]);
     console.log(wards);
     nam = this.props.nam; //getting list of districts got in login page;
     return (
@@ -147,7 +147,9 @@ class RoadForm extends Component {
             </h3>
             <Form>
               <div>
-                <h4 className="font-weight-bold mb-4">Sample</h4>
+                <h4 className="font-weight-bold mb-4">
+                  {data.Form.UD[this.props.lang]}
+                </h4>
                 <Row className="mb-2">
                   <Col>
                     <Row>
@@ -415,7 +417,7 @@ class RoadForm extends Component {
               <br></br>
               <div>
                 <h4 className="font-weight-bold mt-5 mb-4">
-                  {data.Form.LRS[this.props.lang]}e
+                  {data.Form.LRS[this.props.lang]}
                 </h4>
                 <Row className="mb-2">
                   <Col>
@@ -641,14 +643,16 @@ class RoadForm extends Component {
           </div>
         </Container>
         <div className="d-flex justify-content-center align-items-center mt-5 mb-2">
-          <h6 className="mb-0">Backed by </h6>{" "}
-          <img src={digit} alt="Digit" height="20" />
+          <h6 className="mb-0">Powered by </h6>{" "}
+          <img src={digit} className="ml-2" alt="Digit" height="20" />
         </div>
       </div>
     );
   }
 }
 const mapStateToProps = state => {
+  //Allows to access redux database
+
   return {
     user: state.user,
     password: state.password,
@@ -661,10 +665,12 @@ const mapStateToProps = state => {
   };
 };
 const mapDispatchToProps = dispatch => {
+  // To Functions defined redux to change variables stored in redux
+
   return {
     edit_consumCode: consumCode => {
       dispatch({ type: "CONSUMCODEEDIT", consumCode: consumCode });
     }
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(RoadForm);
+export default connect(mapStateToProps, mapDispatchToProps)(RoadForm);//used to connect componenet with redux
